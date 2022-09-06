@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { CustomSelect } from "./CustomSelect";
 import Search from './Search';
 
@@ -26,9 +26,16 @@ align-items: flex-start;
 `;
 
 
-const Controls = () => {
+const Controls = ({ onSearch }) => {
 	const [search, setSearch] = useState('');
 	const [region, setRegion] = useState('');
+
+	useEffect(() => {
+		const regionValue = region?.value || '';
+		onSearch(search, regionValue)
+
+		// eslint-disable-next-line
+	}, [search, region])
 
 	return (
 		<Wrapper>
