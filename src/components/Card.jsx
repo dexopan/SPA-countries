@@ -51,7 +51,6 @@ const Card = ({ img, name, info = [], onClick }) => {
 							<b>{el.title}:</b> {el.description}
 						</CardListItem>
 					))}
-
 				</CardList>
 			</CardBody>
 		</Wrapper>
