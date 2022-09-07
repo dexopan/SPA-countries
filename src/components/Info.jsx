@@ -150,7 +150,7 @@ const Info = (props) => {
 				<Meta>
 					<b>Border countries:</b>
 					{!borders.length ? (
-						<span>There is no border counties</span>
+						<span>There is no border countries</span>
 					) : (
 						<TagGroup>
 							{neighbors.map(n => (<Tag onClick={() => push(n)} key={n}>{n}</Tag>))}
