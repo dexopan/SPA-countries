@@ -23,8 +23,8 @@ const InputContainer = styled.label`
 	`;
 
 const Input = styled.input.attrs({
-	type: 'seach',
-	placeholder: 'Seach for a country...',
+	type: 'search',
+	placeholder: 'Search for a country...',
 })`
 width: 100%;
 border: none;

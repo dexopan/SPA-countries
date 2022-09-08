@@ -10,7 +10,7 @@ const Details = () => {
 	const { name } = useParams();
 	const navigate = useNavigate();
 	const goBack = () => navigate(-1);
-	const push = (neighbor) => navigate(`/country/${neighbor}`)
+	const push = (neighbor) => navigate(`/country/${neighbor}`);
 
 	const [country, setCountry] = useState(null);
 

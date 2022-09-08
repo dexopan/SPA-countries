@@ -11,20 +11,22 @@ import { ALL_COUNTRIES } from "../config";
 
 
 
-const HomePage = ({ countries, setCountries }) => {
+const HomePage = () => {
 
-
-	useEffect(() => {
-		if (!countries.length) {
-			axios.get(ALL_COUNTRIES).then(
-				({ data }) => {
-					setCountries(data)
-					setFiltredCountries(data)
-				})
-		}
-	}, [])
+	const [countries, setCountries] = useState([]);
 
 	const [filtredCountries, setFiltredCountries] = useState(countries);
+
+	useEffect(() => {
+		axios.get(ALL_COUNTRIES).then(
+			({ data }) => {
+				setCountries(data)
+				setFiltredCountries(data)
+			})
+
+	}, [])
+
+	const navigate = useNavigate();
 
 	const handleSearch = (search, region) => {
 
@@ -41,8 +43,6 @@ const HomePage = ({ countries, setCountries }) => {
 		setFiltredCountries(data)
 
 	};
-
-	const navigate = useNavigate();
 
 	return (
 		<>
@@ -67,7 +67,7 @@ const HomePage = ({ countries, setCountries }) => {
 							}
 						],
 					};
-					return <Card key={c.name} onClick={() => navigate(`country/${c.name}`, { state: c })} {...countryInfo} />
+					return <Card key={c.name} onClick={() => navigate(`country/${c.name}`)} {...countryInfo} />
 				})}
 			</List>
 		</>
